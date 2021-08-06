@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sign in - yam</title>
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <style media="screen">
+      body{
+        margin-top: 20vh;
+      }
+      p{
+        margin-top: 1vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Вход</h2>
+      <form method="post" action="/chats">
+        <div class="mb-3">
+          <label for="login" class="form-label">Логин</label>
+          <input class="form-control" id="login" autocomplete="off" name="login">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Пароль</label>
+          <input type="password" class="form-control" id="password" autocomplete="off" name="password">
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="rememberme" name="rememberme">
+          <label class="form-check-label" for="rememberme">Запомнить меня</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Войти</button>
+      </form>
+      <p><a href="/chats">Я уже вошел</a></p>
+      <hr>
+      <div class="list-group">
+        <a href="/chats" class="list-group-item list-group-item-secondary">Я уже вошел</a>
+        <a href="/" class="list-group-item list-group-item-secondary">Назад</a>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Chats - yam</title>
+    <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+  </head>
+  <body>
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <span class="navbar-brand">Все чаты</span>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Настройки
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="/new_chat">Создать новый чат</a></li>
+                  <li><a class="dropdown-item" href="/new_group_chat">Создать новый групповой чат</a></li>
+                  <li><a class="dropdown-item" href="/deletea">Удалить аккаунт</a></li>
+                  <li><a class="dropdown-item" href="/new_username">Поменять ник</a></li>
+                </ul>
+                <li class="nav-item">
+                  <a class="nav-link" href="/logout">Выйти</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" href="#" aria-disabled="true">{{ username }}</a>
+                </li>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      {% if not chats == [] or not gchats == [] %}
+        {% if not chats == [] %}
+          <h5 style="margin-top: 1vh">Чаты</h5>
+          <div class="list-group">
+            {% for i in chats %}
+              <a href="/chats/{{ i.id }}" class="list-group-item list-group-item-secondary">{{ i.username }}</a>
+            {% endfor %}
+          </div>
+        {% endif %}
+        {% if not gchats == [] %}
+          <h5 style="margin-top: 1vh">Групповые чаты</h5>
+          <div class="list-group">
+            {% for i in gchats %}
+              <a href="/chats/{{ i.id }}" class="list-group-item list-group-item-secondary">{{ i.name }}</a>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% else %}
+        <p><h3>У вас пока нету чатов</h3></p>
+        <hr>
+        <div class="list-group">
+          <a href="/new_chat" class="list-group-item list-group-item-action">Создать новый чат</a>
+          <a href="/new_group_chat" class="list-group-item list-group-item-action">Создать новый групповой чат</a>
+        </div>
+      {% endif %}
+      <h6 style="float: right; margin-top: 1vh; font-size: 1vh" class="h6">Разработчик: <a href="https://t.me/rijksly">t.me/rijksly</a></h6>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+  </body>
+</html>
